@@ -56,7 +56,8 @@ export const Navbar: React.FC = () => {
             alt="Location icon"
           />
           <div className="basis-auto my-auto whitespace-nowrap">
-            Olongapo City, Philippines
+            <span className="max-md:hidden">Olongapo City, Philippines</span>
+            <span className="hidden max-md:inline">Olongapo City, PH</span>
           </div>
         </div>
         <div className="flex items-stretch gap-[5px] text-right tracking-[-0.14px]">

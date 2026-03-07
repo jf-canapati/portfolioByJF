@@ -95,7 +95,40 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: auto;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Geist', sans-serif;
   }
+}
+
+/* Fade-in animation for sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.fade-in-section.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar slide down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-animate {
+  animation: slideDown 0.3s ease-out;
 }

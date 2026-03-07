@@ -34,19 +34,19 @@ export const HackathonsSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-white flex w-full flex-col overflow-hidden items-stretch mt-2.5 p-5 rounded-[32px] max-md:max-w-full">
-      <div className="bg-[rgba(234,234,234,1)] flex flex-col overflow-hidden items-stretch text-sm text-[rgba(20,20,20,1)] font-medium whitespace-nowrap leading-[1.2] justify-center px-2.5 py-[13px] rounded-[10px]">
+    <section className="bg-white dark:bg-[rgb(31,31,31)] flex w-full flex-col overflow-hidden items-stretch mt-2.5 pl-5 pr-5 py-5 rounded-[32px] max-md:max-w-full max-md:pr-5 transition-colors duration-300">
+      <div className="bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] flex flex-col overflow-hidden items-stretch text-sm text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] font-medium whitespace-nowrap leading-[1.2] justify-center px-2.5 py-[8.5px] rounded-[10px] w-fit transition-colors duration-300">
         <div>Hackathons</div>
       </div>
       <div className="mt-5 max-md:max-w-full">
-        <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
+        <div className="gap-[10px] flex max-md:flex-col max-md:items-stretch">
           <div className="w-6/12 max-md:w-full max-md:ml-0">
             <HackathonCard
               {...hackathons[0]}
               onClick={() => handleHackathonClick(hackathons[0].title)}
             />
           </div>
-          <div className="w-6/12 ml-5 max-md:w-full max-md:ml-0">
+          <div className="w-6/12 max-md:w-full max-md:ml-0">
             <HackathonCard
               {...hackathons[1]}
               onClick={() => handleHackathonClick(hackathons[1].title)}
@@ -54,15 +54,15 @@ export const HackathonsSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mt-2.5 max-md:max-w-full">
-        <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
+      <div className="mt-[10px] max-md:max-w-full">
+        <div className="gap-[10px] flex max-md:flex-col max-md:items-stretch">
           <div className="w-6/12 max-md:w-full max-md:ml-0">
             <HackathonCard
               {...hackathons[2]}
               onClick={() => handleHackathonClick(hackathons[2].title)}
             />
           </div>
-          <div className="w-6/12 ml-5 max-md:w-full max-md:ml-0">
+          <div className="w-6/12 max-md:w-full max-md:ml-0">
             <HackathonCard
               {...hackathons[3]}
               onClick={() => handleHackathonClick(hackathons[3].title)}

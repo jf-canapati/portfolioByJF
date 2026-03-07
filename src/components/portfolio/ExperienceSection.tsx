@@ -14,7 +14,7 @@ const experiences = [
     company: "David's Salon",
     position: "Web Development Intern",
     description: "During this internship, I spearheaded the transition of the company's digital assets into a comprehensive multi-platform ecosystem, developing integrated web, mobile, and kiosk applications. Implemented an AI-powered hairstyle recommendation system and streamlined salon operations through automated booking and customer management solutions.",
-    timeline: "March 2025 - May 2025",
+    timeline: "June 2025 - January 2026",
     location: "Olongapo City, PH",
     logo: "/david-salon-logo.png"
   },

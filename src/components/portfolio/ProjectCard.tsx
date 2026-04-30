@@ -4,7 +4,7 @@ interface ProjectCardProps {
   id: string;
   image: string;
   title: string;
-  industry: string;
+  subtitle: string;
   icon: string;
   url?: string;
   comingSoon?: boolean;
@@ -16,7 +16,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
   title,
-  industry,
+  subtitle,
   icon,
   url,
   comingSoon = false,
@@ -75,7 +75,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {title}
         </h3>
         <p className="text-white/70 text-xs leading-[1.3] tracking-[-0.01px] mt-1">
-          {industry}
+          {subtitle}
         </p>
       </div>
     </article>

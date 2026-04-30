@@ -39,6 +39,9 @@ const ProjectsPage = () => {
     setIsModalOpen(true);
   };
 
+  const completedProjects = projects.filter(p => !p.comingSoon);
+  const wipProjects = projects.filter(p => p.comingSoon);
+
   return (
     <div className="bg-[#F0F0F0] dark:bg-[rgb(20,20,20)] min-h-screen transition-colors duration-300 flex flex-col">
       <Navbar />
@@ -64,13 +67,12 @@ const ProjectsPage = () => {
                 All Projects
               </h1>
               <p className="text-sm text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] mt-2 max-w-2xl leading-[1.6]">
-                A complete showcase of my work, including in-development projects, technical experiments, 
-                and full-scale applications.
+                A complete showcase of my work, including technical experiments and full-scale applications.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {projects.map((project) => (
+              {completedProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
                   {...project}
@@ -80,6 +82,27 @@ const ProjectsPage = () => {
               ))}
             </div>
           </section>
+
+          {/* Work in Progress Section */}
+          {wipProjects.length > 0 && (
+            <section className="section-card">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="section-label">Work in Progress</div>
+                <div className="h-px flex-1 bg-[rgba(234,234,234,1)] dark:bg-[rgba(60,60,60,1)] opacity-50"></div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 opacity-80 transition-opacity hover:opacity-100">
+                {wipProjects.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    {...project}
+                    featured={false}
+                    onClick={() => handleProjectClick(project)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
 
           <div>
             <Footer />

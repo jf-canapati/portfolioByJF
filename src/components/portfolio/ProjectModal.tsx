@@ -45,21 +45,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-hidden">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-12 sm:p-16 overflow-hidden">
       {/* Overlay */}
       <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity"
         onClick={onClose}
       />
       
-      {/* Modal Content */}
-      <div 
-        data-lenis-prevent
-        className="relative bg-[#F9F9F9] dark:bg-[rgb(25,25,25)] w-full max-w-5xl rounded-md shadow-2xl flex flex-col max-h-[95vh] overflow-hidden animate-in fade-in zoom-in duration-300 border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)]"
-      >
+      <div className="relative w-full max-w-5xl">
+        {/* Close Button (Outside, but close to modal) */}
+        <button 
+          onClick={onClose}
+          className="absolute -top-12 right-0 sm:-top-2 sm:-right-12 z-[10000] w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-all hover:rotate-90 duration-300"
+          aria-label="Close modal"
+        >
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        {/* Modal Content */}
+        <div 
+          data-lenis-prevent
+          className="relative bg-white dark:bg-[rgb(22,22,22)] w-full rounded-md shadow-[0_32px_80px_rgba(0,0,0,0.15)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.4)] flex flex-col max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in duration-300 custom-scrollbar"
+        >
         
         {/* Header Section */}
-        <div className="px-6 py-5 flex items-center justify-between border-b border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] bg-white dark:bg-[rgb(31,31,31)]">
+        <div className="px-8 py-7 flex items-center justify-between bg-transparent">
           <div className="flex flex-col">
             <h2 className="text-xl font-medium text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] tracking-[-0.03em] leading-tight">
               {project.title}
@@ -83,43 +95,42 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 </svg>
               </a>
             )}
-            <button 
-              onClick={onClose}
-              className="w-8 h-8 rounded-md flex items-center justify-center text-[rgba(120,120,120,1)] hover:bg-[rgba(0,0,0,0.05)] dark:hover:bg-[rgba(255,255,255,0.05)] transition-colors border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)]"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
           </div>
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1">
           {/* Preview Section (Virtual Desktop Preview) */}
+          {/* Preview Section (Premium Minimalist Preview) */}
           <div className="p-6">
-            <div 
-              className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full rounded-md overflow-y-auto bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] shadow-sm custom-scrollbar"
-              data-lenis-prevent
-            >
-              {project.image ? (
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-auto block"
-                />
-              ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-white dark:bg-[rgb(31,31,31)] flex items-center justify-center shadow-sm">
-                    <svg className="w-6 h-6 text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
+            <div className="group relative rounded-md overflow-hidden bg-white dark:bg-[#1e1e1e] border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] shadow-2xl transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+              {/* Scrollable Content */}
+              <div 
+                className="relative h-[300px] sm:h-[400px] md:h-[550px] w-full overflow-y-auto bg-[rgba(234,234,234,1)] dark:bg-[#0f0f0f] custom-scrollbar"
+                data-lenis-prevent
+              >
+                {/* Subtle depth shadow */}
+                <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black/[0.03] dark:from-black/20 to-transparent pointer-events-none z-10"></div>
+                
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-auto block transition-opacity duration-700 animate-in fade-in"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-white dark:bg-[rgb(31,31,31)] flex items-center justify-center shadow-sm">
+                      <svg className="w-6 h-6 text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
+                      {project.comingSoon ? "Preview coming soon" : "No preview available"}
+                    </span>
                   </div>
-                  <span className="text-sm font-medium text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
-                    {project.comingSoon ? "Preview coming soon" : "No preview available"}
-                  </span>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
 
@@ -135,30 +146,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               </div>
 
               {/* Tabs Section */}
-              <div className="flex flex-col border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] rounded-md bg-white dark:bg-[rgb(31,31,31)] overflow-hidden">
-                <div className="flex items-center border-b border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)]">
+              <div className="flex flex-col mt-4">
+                <div className="flex items-center gap-8 border-b border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] mb-6">
                   {['Overview', 'Background'].map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`px-6 py-3 text-xs font-medium transition-colors border-b-2 ${
+                      className={`pb-3 text-xs font-semibold tracking-tight transition-all relative ${
                         activeTab === tab 
-                        ? 'border-[rgba(20,20,20,1)] dark:border-[rgba(240,240,240,1)] text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)]' 
-                        : 'border-transparent text-[rgba(120,120,120,1)] hover:text-[rgba(20,20,20,1)] dark:hover:text-[rgba(240,240,240,1)]'
+                        ? 'text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)]' 
+                        : 'text-[rgba(140,140,140,1)] hover:text-[rgba(20,20,20,1)] dark:hover:text-[rgba(240,240,240,1)]'
                       }`}
                     >
                       {tab}
+                      {activeTab === tab && (
+                        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[rgba(20,20,20,1)] dark:bg-[rgba(240,240,240,1)] rounded-full animate-in fade-in slide-in-from-bottom-1" />
+                      )}
                     </button>
                   ))}
                 </div>
-                <div className="p-6 min-h-[160px]">
+                <div className="min-h-[100px]">
                   {activeTab === 'Overview' ? (
-                    <p className="text-sm leading-[1.7] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
+                    <p className="text-sm leading-[1.8] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
                       {project.fullDescription}
                     </p>
                   ) : (
                     <div className="flex flex-col gap-4">
-                      <p className="text-sm leading-[1.7] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
+                      <p className="text-sm leading-[1.8] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
                         Developed as a specialized solution for {project.industry.toLowerCase()} challenges, 
                         this project focused on creating a robust and scalable architecture while maintaining 
                         a high-quality user experience.
@@ -193,7 +207,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 <h3 className="text-[14px] font-semibold text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] mb-4">
                   Features
                 </h3>
-                <div className="flex flex-col border-t border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)]">
+                <div className="flex flex-col">
                   {project.features.map((feature) => (
                     <div 
                       key={feature.title}
@@ -249,7 +263,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           </div>
         </div>
       </div>
-    </div>,
-    document.body
-  );
+    </div>
+  </div>,
+  document.body
+);
 };

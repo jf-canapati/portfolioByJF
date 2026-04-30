@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 'davids-salon',
     image: "/projects/david-salon.png",
-    title: "David's Salon System",
+    title: "David's Salon ERP System",
     subtitle: "Modernizing Salon Operations",
     industry: "Web, Mobile & Kiosk",
     icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/86856ec891789b8216d0a2ceb79b1aa4799b104f?placeholderIfAbsent=true",
@@ -43,7 +43,7 @@ export const projects = [
     id: 'copit',
     image: "/projects/copit.png",
     title: "COPit",
-    subtitle: "Competitive Thriftshopping",
+    subtitle: "A Competitive Thrift Shopping App",
     industry: "Mobile Commerce",
     icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/2522b6504e62a3ff547042479207fada888afa95?placeholderIfAbsent=true",
     comingSoon: false,
@@ -82,40 +82,41 @@ export const projects = [
   {
     id: 'lsb-violation',
     image: "/projects/svms.jpeg",
-    title: "LSB Violation System",
-    subtitle: "District Compliance Platform",
+    title: "Student Violation Management System",
+    subtitle: "Lyceum of Subic Bay",
     industry: "Web Application",
     icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/86856ec891789b8216d0a2ceb79b1aa4799b104f?placeholderIfAbsent=true",
     comingSoon: false,
     url: "https://lsb-svms.kesug.com/",
-    description: "Streamlining administrative compliance and violation tracking for school boards.",
-    fullDescription: "The LSB Violation System brings transparency to administrative compliance within the local school district. It provides a structured environment for reporting and resolving issues, from facility maintenance violations to administrative policy breaches. The system ensures that every report is tracked through to resolution, with automated escalations and detailed audit logs.",
+    description: "A centralized system for tracking and managing student disciplinary records and violations.",
+    fullDescription: "The Student Violation Management System (SVMS) for Lyceum of Subic Bay is designed to digitize and streamline the tracking of student disciplinary actions. It replaces manual filing with a robust database that allows administrators to record violations, track resolution progress, and maintain a clear history of student conduct, ensuring fair and efficient management of school policies.",
     features: [
-      { title: "Compliance Audit Logging", description: "Maintains a permanent, unalterable record of all compliance checks and administrative reports." },
-      { title: "Automated Escalation Logic", description: "Automatically notifies higher authorities if violations are not resolved within set timeframes." },
-      { title: "Resolution Workflow Tracking", description: "Step-by-step visibility into the status of every reported violation from filing to fix." },
-      { title: "District-wide Reporting", description: "Aggregated data views for school board members to identify systemic issues across the district." },
-      { title: "Role-based Access Control", description: "Secure access levels for teachers, principals, and board administrators." }
+      { title: "Student Conduct Tracking", description: "Maintains a comprehensive history of disciplinary reports and resolutions for every student." },
+      { title: "Real-time Violation Logging", description: "Allows authorized staff to instantly report and document violations as they occur." },
+      { title: "Disciplinary Action Workflow", description: "Structured process for managing penalties, resolutions, and student counseling status." },
+      { title: "Automated Record Retrieval", description: "Quick access to student conduct history for administrative review and parental meetings." },
+      { title: "Role-based Security", description: "Strict access control ensuring that sensitive disciplinary data is only viewable by authorized personnel." }
     ],
     technologies: ["PHP", "Laravel", "Bootstrap", "MySQL"]
   },
   {
-    id: 'tandrio',
+    id: 'lumencv',
     image: "",
-    title: "Tandrio",
-    subtitle: "Creative Project Management",
-    industry: "Web Application",
+    title: "LumenCV",
+    subtitle: "AI-Powered Career Intelligence",
+    industry: "SaaS / AI Platform",
     icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/ae4ea565ba9ff167b0b6417615849efee1e7c1f2?placeholderIfAbsent=true",
     comingSoon: true,
-    description: "A modern project management tool designed for creative teams.",
-    fullDescription: "Tandrio emphasizes visual workflow planning and seamless collaboration. It provides creative teams with a unique board-based interface that goes beyond traditional Kanban, allowing for more fluid and intuitive project tracking across distributed environments.",
+    url: "https://lumencv.lovable.app/",
+    description: "An intelligent resume matching and application tracking system powered by AI.",
+    fullDescription: "LumenCV is an all-in-one career intelligence platform that helps job seekers stand out. Using advanced NLP and semantic matching, it analyzes resumes against job descriptions to provide real-time match scores and personalized feedback. Beyond matching, LumenCV acts as a smart career companion, generating tailored cover letters and identifying skill gaps to help users navigate their career roadmap with data-driven insights.",
     features: [
-      { title: "Visual Workflow Boards", description: "Customizable boards that represent complex creative workflows beyond simple lists." },
-      { title: "Collaborative Resource Planning", description: "Real-time allocation of team members and assets to different project phases." },
-      { title: "Asset Management Integration", description: "Seamlessly link design files and creative assets directly to project tasks." },
-      { title: "Team Velocity Tracking", description: "AI-driven insights into team productivity and project timeline forecasting." },
-      { title: "Custom Creative Workflows", description: "Build and save workflow templates tailored specifically to creative project needs." }
+      { title: "Semantic Resume Matching", description: "Moves beyond simple keywords using embeddings and cosine similarity to measure true contextual relevance." },
+      { title: "AI Feedback Generator", description: "Provides specific, actionable suggestions to improve resume bullet points and highlight missing skills." },
+      { title: "Smart Application Tracker", description: "A Kanban-style dashboard to manage the entire job search lifecycle from application to offer." },
+      { title: "ATS Score Dashboard", description: "Visualizes skill coverage, keyword density, and overall compatibility with Applicant Tracking Systems." },
+      { title: "Skill Gap Roadmap", description: "Analyzes target roles to suggest the specific tools and technologies needed to achieve a 100% match." }
     ],
-    technologies: ["Next.js", "Zustand", "Tailwind CSS"]
+    technologies: ["Next.js", "PostgreSQL", "OpenAI API", "Python / FastAPI"]
   }
 ];

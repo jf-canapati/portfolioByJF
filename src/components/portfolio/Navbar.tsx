@@ -3,16 +3,14 @@ import React, { useState, useEffect } from 'react';
 export const Navbar: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check localStorage first, default to true if not set
     const saved = localStorage.getItem('darkMode');
-    return saved !== null ? saved === 'true' : true;
+    return saved !== null ? saved === 'true' : false;
   });
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -26,7 +24,6 @@ export const Navbar: React.FC = () => {
     }
   }, [isDarkMode]);
 
-  // Set dark mode on initial load
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -47,26 +44,26 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="flex w-full flex-col overflow-hidden items-center text-sm text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] font-normal leading-[1.3] pt-20 px-[70px] max-md:pt-[10px] max-md:px-[10px] max-md:max-w-full transition-colors duration-300 navbar-animate">
-      <nav className="bg-white dark:bg-[rgb(31,31,31)] flex w-[760px] max-w-full items-stretch gap-5 overflow-hidden justify-between p-5 rounded-[32px] transition-colors duration-300">
-        <div className="flex items-stretch gap-[5px] tracking-[-0.01px]">
+    <header className="flex w-full flex-col overflow-hidden items-center text-xs text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] font-normal leading-[1.3] pt-4 px-4 max-md:pt-4 max-md:px-4 transition-colors duration-300 navbar-animate">
+      <nav className="section-card flex w-[1100px] max-w-full items-center gap-5 overflow-hidden justify-between !py-4">
+        <div className="flex items-center gap-1.5 tracking-[-0.01px]">
           <img
             src="https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/a0b2a44317b9b2e72307c472782f320712d1c61c?placeholderIfAbsent=true"
-            className="aspect-[1] object-contain w-5 shrink-0"
+            className="aspect-[1] object-contain w-4 shrink-0"
             alt="Location icon"
           />
-          <div className="basis-auto my-auto whitespace-nowrap">
+          <div className="whitespace-nowrap">
             <span className="max-md:hidden">Olongapo City, Philippines</span>
             <span className="hidden max-md:inline">Olongapo City, PH</span>
           </div>
         </div>
-        <div className="flex items-stretch gap-[5px] text-right tracking-[-0.14px]">
-          <div className="grow my-auto whitespace-nowrap">
+        <div className="flex items-center gap-2 text-right tracking-[-0.14px]">
+          <div className="whitespace-nowrap">
             {formatTime(currentTime)}
           </div>
           <button 
             onClick={toggleDarkMode}
-            className="aspect-[1] w-[19px] shrink-0 cursor-pointer hover:opacity-70 transition-opacity"
+            className="aspect-[1] w-4 shrink-0 cursor-pointer hover:opacity-70 transition-opacity"
             aria-label="Toggle dark mode"
           >
             {isDarkMode ? (

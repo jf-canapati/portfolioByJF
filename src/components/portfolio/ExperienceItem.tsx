@@ -18,44 +18,50 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
   logo
 }) => {
   return (
-    <article className="bg-white dark:bg-[rgb(31,31,31)] overflow-hidden rounded-[20px] max-md:max-w-full transition-colors duration-300">
-      <div className="border dark:border-[rgba(60,60,60,1)] flex w-full flex-col pl-5 pr-5 py-5 rounded-[20px] border-[rgba(234,234,234,1)] border-solid max-md:max-w-full max-md:pr-5 transition-colors duration-300">
-        <div className="flex gap-5 max-md:flex-col">
-          <img
-            src={logo}
-            className="aspect-[1] object-cover w-10 h-10 shrink-0 rounded-[10px]"
-            alt={`${company} logo`}
-          />
-          <div className="flex flex-col items-stretch">
-            <h3 className="text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] text-[22px] leading-[1.2] tracking-[-0.44px] max-md:text-[18px] transition-colors duration-300">
-              {position}
-            </h3>
-            <div className="text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] text-sm leading-[1.3] tracking-[-0.01px] mt-1 transition-colors duration-300">
-              {company}
-            </div>
+    <article className="relative flex gap-4 w-full group">
+      {/* Timeline line connector (hidden on last item via parent CSS) */}
+      <div className="absolute left-[15px] top-8 bottom-[-16px] w-[2px] bg-[rgba(234,234,234,1)] dark:bg-[rgba(60,60,60,1)] timeline-connector transition-colors duration-300"></div>
+      
+      {/* Node / Logo */}
+      <div className="relative z-10 shrink-0">
+        <img
+          src={logo}
+          className="aspect-[1] object-cover w-[32px] h-[32px] shrink-0 rounded-full border-[3px] border-white dark:border-[rgb(31,31,31)] bg-white dark:bg-[rgb(31,31,31)] group-hover:scale-110 transition-transform duration-300"
+          alt={`${company} logo`}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 pb-2">
+        <div className="flex flex-col min-w-0">
+          <h3 className="text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] text-sm font-medium leading-[1.2] tracking-[-0.28px] transition-colors duration-300">
+            {position}
+          </h3>
+          <div className="text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] text-xs leading-[1.3] tracking-[-0.01px] mt-0.5 transition-colors duration-300">
+            {company}
           </div>
         </div>
-        <p className="text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] text-base leading-[23px] tracking-[-0.01px] self-stretch ml-[60px] mt-5 max-md:mt-2.5 max-md:ml-0 max-md:max-w-full transition-colors duration-300">
+        
+        <p className="text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] text-sm leading-[1.6] tracking-[-0.01px] mt-2 transition-colors duration-300">
           {description}
         </p>
-        <div className="flex flex-col md:flex-row md:items-stretch gap-2 md:gap-[21px] text-[13px] text-[rgba(116,116,116,1)] dark:text-[rgba(150,150,150,1)] tracking-[-0.01px] leading-[1.2] ml-[60px] mt-5 max-md:mt-2.5 max-md:ml-0 transition-colors duration-300">
-          <div className="flex items-stretch gap-[5px]">
+        
+        <div className="flex flex-wrap items-center gap-3 text-[11px] text-[rgba(116,116,116,1)] dark:text-[rgba(150,150,150,1)] tracking-[-0.01px] leading-[1.2] mt-3 transition-colors duration-300">
+          <div className="flex items-center gap-1.5">
             <img
               src="https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/0171fb8151864c47c6de5b9d0659fdb4559c5c83?placeholderIfAbsent=true"
-              className="aspect-[1] object-contain w-4 shrink-0"
+              className="aspect-[1] object-contain w-3 shrink-0 opacity-80"
               alt="Calendar icon"
             />
-            <div className="basis-auto my-auto">
-              {timeline}
-            </div>
+            <span>{timeline}</span>
           </div>
-          <div className="flex items-stretch gap-[5px]">
+          <div className="flex items-center gap-1.5">
             <img
               src="https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/4399e38451f9324e495c4eaceaca4c1edb484b4e?placeholderIfAbsent=true"
-              className="aspect-[1] object-contain w-4 shrink-0"
+              className="aspect-[1] object-contain w-3 shrink-0 opacity-80"
               alt="Location icon"
             />
-            <div className="my-auto">{location}</div>
+            <span>{location}</span>
           </div>
         </div>
       </div>

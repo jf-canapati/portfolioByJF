@@ -1,119 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProjectCard } from './ProjectCard';
-
-const projects = [
-  {
-    id: 'davids-salon',
-    image: "/david-salon.png",
-    title: "David's Salon System",
-    industry: "Web, Mobile & Kiosk",
-    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/86856ec891789b8216d0a2ceb79b1aa4799b104f?placeholderIfAbsent=true",
-    comingSoon: false
-  },
-  {
-    id: 'copit',
-    image: "/mobile-copit.png",
-    title: "COPit",
-    industry: "Mobile Application",
-    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/2522b6504e62a3ff547042479207fada888afa95?placeholderIfAbsent=true",
-    comingSoon: false
-  },
-  {
-    id: 'mag-grantees',
-    image: "",
-    title: "Mag-Grantees",
-    industry: "Web & Mobile",
-    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/29b4dccd69f5e1718112a11f4ea189251f566030?placeholderIfAbsent=true",
-    comingSoon: true
-  },
-  {
-    id: 'seek-tizen',
-    image: "",
-    title: "Seek-tiZen",
-    industry: "Web & Mobile",
-    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/68fb7d9e65660dd90f5143643e14ab6687cefc0d?placeholderIfAbsent=true",
-    comingSoon: true
-  },
-  {
-    id: 'tandrio',
-    image: "",
-    title: "Tandrio",
-    industry: "Web Application",
-    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/ae4ea565ba9ff167b0b6417615849efee1e7c1f2?placeholderIfAbsent=true",
-    comingSoon: true
-  },
-  {
-    id: 'lsb-violation',
-    image: "",
-    title: "LSB Violation System",
-    industry: "Web Application",
-    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/86856ec891789b8216d0a2ceb79b1aa4799b104f?placeholderIfAbsent=true",
-    comingSoon: true
-  }
-];
+import { ProjectModal } from './ProjectModal';
+import { projects } from '@/data/projects';
 
 export const ProjectsSection: React.FC = () => {
   const navigate = useNavigate();
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleProjectClick = (projectId: string) => {
+  const handleViewAll = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    navigate(`/project/${projectId}`);
+    navigate(`/projects`);
   };
 
+  const handleProjectClick = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  // Only display the first 3 projects on the home page
+  const displayedProjects = projects.slice(0, 3);
+
   return (
-    <section className="bg-white dark:bg-[rgb(31,31,31)] flex w-full flex-col items-stretch mt-2.5 pl-5 pr-5 py-5 rounded-[32px] max-md:max-w-full max-md:pr-5 transition-colors duration-300">
-      <div className="bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] flex flex-col overflow-hidden items-stretch text-sm text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] font-medium whitespace-nowrap leading-[1.2] justify-center px-2.5 py-[8.5px] rounded-[10px] w-fit transition-colors duration-300">
-        <div>Projects</div>
-      </div>
-      <div className="mt-5 max-md:max-w-full">
-        <div className="gap-[10px] flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="w-6/12 max-md:w-full max-md:ml-0">
-            <ProjectCard
-              {...projects[0]}
-              onClick={() => !projects[0].comingSoon && handleProjectClick(projects[0].id)}
-            />
-          </div>
-          <div className="w-6/12 max-md:w-full max-md:ml-0 max-md:mt-[10px]">
-            <ProjectCard
-              {...projects[1]}
-              onClick={() => !projects[1].comingSoon && handleProjectClick(projects[1].id)}
-            />
-          </div>
+    <section className="section-card h-full flex flex-col">
+      <div className="flex items-center justify-between">
+        <div className="section-label">
+          Projects
         </div>
+        <button 
+          onClick={handleViewAll}
+          className="text-[11px] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] hover:text-[rgba(20,20,20,1)] dark:hover:text-[rgba(240,240,240,1)] transition-colors flex items-center gap-1 group"
+        >
+          View all
+          <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-      <div className="mt-[10px] max-md:max-w-full">
-        <div className="gap-[10px] flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="w-6/12 max-md:w-full max-md:ml-0">
-            <ProjectCard
-              {...projects[4]}
-              onClick={() => !projects[4].comingSoon && handleProjectClick(projects[4].id)}
-            />
-          </div>
-          <div className="w-6/12 max-md:w-full max-md:ml-0 max-md:mt-[10px]">
-            <ProjectCard
-              {...projects[3]}
-              onClick={() => !projects[3].comingSoon && handleProjectClick(projects[3].id)}
-            />
-          </div>
-        </div>
+      
+      <div className="projects-grid mt-4 flex-1" style={{ gridTemplateRows: 'auto 1fr' }}>
+        {displayedProjects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            {...project}
+            featured={index === 0}
+            compact={index !== 0}
+            onClick={() => handleProjectClick(project)}
+          />
+        ))}
       </div>
-      <div className="mt-[10px] max-md:max-w-full">
-        <div className="gap-[10px] flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="w-6/12 max-md:w-full max-md:ml-0">
-            <ProjectCard
-              {...projects[2]}
-              onClick={() => !projects[2].comingSoon && handleProjectClick(projects[2].id)}
-            />
-          </div>
-          <div className="w-6/12 max-md:w-full max-md:ml-0 max-md:mt-[10px]">
-            <ProjectCard
-              {...projects[5]}
-              onClick={() => !projects[5].comingSoon && handleProjectClick(projects[5].id)}
-            />
-          </div>
-        </div>
-      </div>
+
+      <ProjectModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        project={selectedProject} 
+      />
     </section>
   );
 };

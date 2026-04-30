@@ -2,18 +2,20 @@ import React from 'react';
 
 export const OverviewSection: React.FC = () => {
   return (
-    <section className="bg-white dark:bg-[rgb(31,31,31)] flex flex-col overflow-hidden text-base text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] leading-[22px] mt-2.5 pl-5 pr-[30px] py-5 rounded-[32px] max-md:max-w-full max-md:pr-5 transition-colors duration-300">
-      <div className="bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] inline-flex items-center text-sm text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] font-medium whitespace-nowrap px-2.5 py-[8.5px] rounded-[10px] w-fit transition-colors duration-300">
+    <section className="section-card h-full flex flex-col">
+      <div className="section-label">
         Overview
       </div>
-      <div className="font-normal tracking-[-0.01px] self-stretch mt-5 max-md:max-w-full">
-        <span className="font-bold">Full-Stack Developer and Technical Documentation Specialist</span> with a focus on structured, standards-driven system development.
-          Based in the Philippines, I am an Information Technology student combining strong technical foundations
-          with hands-on experience in building web and mobile applications.
+      <div className="text-sm text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] font-normal tracking-[-0.01px] leading-[1.6] mt-3 transition-colors duration-300">
+        I’m a <span className="font-bold text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)]">BSIT graduate</span> with a systems-first mindset, focused on building clear and maintainable solutions.
       </div>
-      <p className="font-normal tracking-[-0.01px] mt-5 max-md:mt-2.5 max-md:max-w-full">
-        From developing full-stack systems to producing clear and well-structured technical documentation,
-        I help teams deliver functional solutions backed by organized and professional project outputs.
+
+      <p className="text-sm text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] font-normal tracking-[-0.01px] leading-[1.6] mt-2.5 transition-colors duration-300">
+        I help <span className="font-medium text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)]">SMEs</span> turn complex needs into practical digital tools that improve operations and deliver real value. I learn fast, communicate across technical and non-technical teams, and iterate quickly with a focus on quality and usability.
+      </p>
+
+      <p className="text-sm text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] font-normal tracking-[-0.01px] leading-[1.6] mt-2.5 transition-colors duration-300">
+        I’m also passionate about <span className="font-medium text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)]">integrating AI</span>, using machine learning and automation to build smarter, more intuitive applications that solve real problems.
       </p>
     </section>
   );

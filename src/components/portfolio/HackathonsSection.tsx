@@ -35,8 +35,8 @@ export const HackathonsSection: React.FC = () => {
 
   return (
     <section className="bg-white dark:bg-[rgb(31,31,31)] flex w-full flex-col overflow-hidden items-stretch mt-2.5 pl-5 pr-5 py-5 rounded-[32px] max-md:max-w-full max-md:pr-5 transition-colors duration-300">
-      <div className="bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] flex flex-col overflow-hidden items-stretch text-sm text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] font-medium whitespace-nowrap leading-[1.2] justify-center px-2.5 py-[8.5px] rounded-[10px] w-fit transition-colors duration-300">
-        <div>Hackathons</div>
+      <div className="section-label">
+        Hackathons
       </div>
       <div className="mt-5 max-md:max-w-full">
         <div className="gap-[10px] flex max-md:flex-col max-md:items-stretch">

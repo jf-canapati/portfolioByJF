@@ -5,7 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
-import { ProjectDetails } from "./pages/ProjectDetails";
+import ProjectsPage from "./pages/Projects";
+import CertificationsPage from "./pages/Certifications";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/project/:projectId" element={<ProjectDetails />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/certifications" element={<CertificationsPage />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

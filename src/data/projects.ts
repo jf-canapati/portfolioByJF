@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 'davids-salon',
-    image: "/david-salon.png",
+    image: "/projects/david-salon.png",
     title: "David's Salon System",
     subtitle: "Modernizing Salon Operations",
     industry: "Web, Mobile & Kiosk",
@@ -20,8 +20,28 @@ export const projects = [
     technologies: ["React", "Firebase", "Tailwind CSS", "Cloud Functions"]
   },
   {
+    id: 'jongs-hvac',
+    image: "/projects/hvac.png",
+    title: "Jong's HVAC Solutions",
+    subtitle: "Professional HVAC Solutions",
+    industry: "Service Business Platform",
+    icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/86856ec891789b8216d0a2ceb79b1aa4799b104f?placeholderIfAbsent=true",
+    comingSoon: false,
+    url: "https://jongshvacph.vercel.app/",
+    description: "A professional platform for air conditioning services, unit sales, and streamlined service requests.",
+    fullDescription: "Jong's HVAC Solutions is a dedicated digital platform built to modernize local HVAC operations. It bridges the gap between traditional service businesses and digital customers by providing a fast, mobile-optimized experience for booking AC services, exploring brand-new units, and viewing verified work history.",
+    features: [
+      { title: "Multi-Unit Service Request", description: "A streamlined form that allows customers to request services for multiple AC units in a single submission." },
+      { title: "Dynamic Product Catalog", description: "Showcases various AC types including split-type, window, and inverter units with technical specifications." },
+      { title: "Regional Service Optimization", description: "Geographically targeted UI designed to cater to clients across Olongapo, Zambales, Bataan, and surrounding provinces." },
+      { title: "Mobile-First Conversion", description: "Highly responsive design focused on converting mobile visitors through easy-to-use contact and booking triggers." },
+      { title: "Workmanship Showcase", description: "A high-performance gallery component that builds brand trust by displaying successful project completions." }
+    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "TanStack Query"]
+  },
+  {
     id: 'copit',
-    image: "/mobile-copit.png",
+    image: "/projects/copit.png",
     title: "COPit",
     subtitle: "Competitive Thriftshopping",
     industry: "Mobile Commerce",
@@ -41,7 +61,7 @@ export const projects = [
   },
   {
     id: 'mag-grantees',
-    image: "",
+    image: "/projects/mag-grantees.png",
     title: "Mag-Grantees",
     subtitle: "Scholarship Portal",
     industry: "Web & Mobile",
@@ -61,7 +81,7 @@ export const projects = [
   },
   {
     id: 'lsb-violation',
-    image: "",
+    image: "/projects/svms.jpeg",
     title: "LSB Violation System",
     subtitle: "District Compliance Platform",
     industry: "Web Application",

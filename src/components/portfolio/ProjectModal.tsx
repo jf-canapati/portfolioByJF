@@ -99,13 +99,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           {/* Preview Section (Virtual Desktop Preview) */}
           <div className="p-6">
             <div 
-              className="relative aspect-[16/9] w-full rounded-md overflow-hidden bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] shadow-sm"
+              className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full rounded-md overflow-y-auto bg-[rgba(234,234,234,1)] dark:bg-[#3a3a3a] border border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] shadow-sm custom-scrollbar"
+              data-lenis-prevent
             >
               {project.image ? (
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-auto block"
                 />
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
@@ -245,7 +246,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

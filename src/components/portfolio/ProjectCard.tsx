@@ -45,7 +45,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       ) : image ? (
         <img
           src={image}
-          className={`absolute inset-0 w-full h-full object-cover ${featured ? 'object-[center_20%]' : 'object-center'} transition-transform duration-500 group-hover:scale-105`}
+          className={`absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105`}
           alt={title}
         />
       ) : (

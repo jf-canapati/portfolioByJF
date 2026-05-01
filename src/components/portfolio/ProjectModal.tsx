@@ -45,7 +45,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-12 sm:p-16 overflow-hidden">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8 md:p-12 lg:p-16 overflow-hidden">
       {/* Overlay */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity"
@@ -53,10 +53,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
       />
       
       <div className="relative w-full max-w-5xl">
-        {/* Close Button (Outside, but close to modal) */}
+        {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute -top-12 right-0 sm:-top-2 sm:-right-12 z-[10000] w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-all hover:rotate-90 duration-300"
+          className="absolute -top-10 right-0 sm:-top-2 sm:-right-12 z-[10000] w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-all hover:rotate-90 duration-300"
           aria-label="Close modal"
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
         >
         
         {/* Header Section */}
-        <div className="px-8 py-7 flex items-center justify-between bg-transparent">
+        <div className="px-6 sm:px-8 py-5 sm:py-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-transparent">
           <div className="flex flex-col">
             <h2 className="text-xl font-medium text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] tracking-[-0.03em] leading-tight">
               {project.title}
@@ -81,13 +81,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             {!project.comingSoon && (
               <a 
                 href={project.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group py-2 px-4 rounded-md bg-[rgba(20,20,20,1)] dark:bg-[rgba(240,240,240,1)] text-white dark:text-[rgba(20,20,20,1)] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="group py-2 px-4 w-full sm:w-auto rounded-md bg-[rgba(20,20,20,1)] dark:bg-[rgba(240,240,240,1)] text-white dark:text-[rgba(20,20,20,1)] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <span className="text-xs font-medium">Visit Live Project</span>
                 <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,10 +135,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           </div>
 
           {/* Two-Column Grid */}
-          <div className="px-6 pb-10 grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-8 items-start">
+          <div className="px-6 pb-10 grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-10 items-start">
             
             {/* Main Column (Wide) */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-10">
               <div className="flex flex-col">
                 <p className="text-sm md:text-base leading-[1.6] text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)] font-medium tracking-[-0.01px]">
                   {project.description}

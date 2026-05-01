@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 min-w-[200px]">
+          <div className="flex flex-col gap-3 min-w-[200px] w-full md:w-auto">
             <button 
               onClick={handleEmailClick}
               className="group flex items-center justify-between py-3 border-b border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] hover:border-[rgba(20,20,20,1)] dark:hover:border-[rgba(240,240,240,1)] transition-colors"

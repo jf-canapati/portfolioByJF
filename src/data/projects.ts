@@ -100,16 +100,16 @@ export const projects = [
     technologies: ["PHP", "Laravel", "Bootstrap", "MySQL"]
   },
   {
-    id: 'lumencv',
+    id: 'applai',
     image: "",
-    title: "LumenCV",
+    title: "Applai",
     subtitle: "AI-Powered Career Intelligence",
     industry: "SaaS / AI Platform",
     icon: "https://api.builder.io/api/v1/image/assets/008baf7b47f342c5bf359303f68777c9/ae4ea565ba9ff167b0b6417615849efee1e7c1f2?placeholderIfAbsent=true",
     comingSoon: true,
     url: "https://lumencv.lovable.app/",
     description: "An intelligent resume matching and application tracking system powered by AI.",
-    fullDescription: "LumenCV is an all-in-one career intelligence platform that helps job seekers stand out. Using advanced NLP and semantic matching, it analyzes resumes against job descriptions to provide real-time match scores and personalized feedback. Beyond matching, LumenCV acts as a smart career companion, generating tailored cover letters and identifying skill gaps to help users navigate their career roadmap with data-driven insights.",
+    fullDescription: "Applai is an all-in-one career intelligence platform that helps job seekers stand out. Using advanced NLP and semantic matching, it analyzes resumes against job descriptions to provide real-time match scores and personalized feedback. Beyond matching, Applai acts as a smart career companion, generating tailored cover letters and identifying skill gaps to help users navigate their career roadmap with data-driven insights.",
     features: [
       { title: "Semantic Resume Matching", description: "Moves beyond simple keywords using embeddings and cosine similarity to measure true contextual relevance." },
       { title: "AI Feedback Generator", description: "Provides specific, actionable suggestions to improve resume bullet points and highlight missing skills." },

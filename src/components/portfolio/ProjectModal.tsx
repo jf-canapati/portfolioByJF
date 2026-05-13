@@ -147,12 +147,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
 
               {/* Tabs Section */}
               <div className="flex flex-col mt-4">
-                <div className="flex items-center gap-8 border-b border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] mb-6">
-                  {['Overview', 'Background'].map((tab) => (
+                <div className="flex items-center gap-6 sm:gap-8 border-b border-[rgba(234,234,234,1)] dark:border-[rgba(60,60,60,1)] mb-6 overflow-x-auto no-scrollbar">
+                  {['Overview', 'Challenges & Solutions', 'Results and Impact'].map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`pb-3 text-xs font-semibold tracking-tight transition-all relative ${
+                      className={`pb-3 text-xs font-semibold tracking-tight transition-all relative whitespace-nowrap ${
                         activeTab === tab 
                         ? 'text-[rgba(20,20,20,1)] dark:text-[rgba(240,240,240,1)]' 
                         : 'text-[rgba(140,140,140,1)] hover:text-[rgba(20,20,20,1)] dark:hover:text-[rgba(240,240,240,1)]'
@@ -165,17 +165,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     </button>
                   ))}
                 </div>
-                <div className="min-h-[100px]">
-                  {activeTab === 'Overview' ? (
-                    <p className="text-sm leading-[1.8] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
+                <div className="min-h-[150px]">
+                  {activeTab === 'Overview' && (
+                    <p className="text-sm leading-[1.8] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)] animate-in fade-in slide-in-from-bottom-2 duration-500">
                       {project.fullDescription}
                     </p>
-                  ) : (
-                    <div className="flex flex-col gap-4">
+                  )}
+                  {activeTab === 'Challenges & Solutions' && (
+                    <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
                       <p className="text-sm leading-[1.8] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
-                        Developed as a specialized solution for {project.industry.toLowerCase()} challenges, 
-                        this project focused on creating a robust and scalable architecture while maintaining 
-                        a high-quality user experience.
+                        {(project as any).challenges || `During the development of ${project.title}, the primary challenge was ensuring seamless integration between complex architectural requirements and a user-centric interface. We addressed this by implementing robust state management and optimizing performance bottlenecks in real-time interactions.`}
+                      </p>
+                    </div>
+                  )}
+                  {activeTab === 'Results and Impact' && (
+                    <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                      <p className="text-sm leading-[1.8] text-[rgba(80,80,80,1)] dark:text-[rgba(180,180,180,1)]">
+                        {(project as any).results || `The deployment of ${project.title} resulted in a significant improvement in operational efficiency and user engagement. By digitizing previously manual processes, the system successfully reduced turnaround times and provided stakeholders with actionable data-driven insights.`}
                       </p>
                     </div>
                   )}

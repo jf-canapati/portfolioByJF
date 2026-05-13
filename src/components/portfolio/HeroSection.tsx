@@ -17,7 +17,7 @@ export const HeroSection: React.FC = () => {
         {/* Profile Image */}
         <div className="relative shrink-0 w-[85px] md:w-full md:mb-4 group overflow-hidden rounded-md border dark:border-[rgba(60,60,60,1)] border-[rgba(234,234,234,1)]">
           <img
-            src="/profile.png"
+            src="/MyProfile.png"
             className="w-full h-auto md:aspect-[1.1] object-contain md:object-cover transition-transform duration-500 group-hover:scale-105"
             alt="Francis Canapati profile"
           />
